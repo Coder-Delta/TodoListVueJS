@@ -6,7 +6,6 @@ const newTask = ref('');
 const emit = defineEmits(['addTask']);
 
 function addTask() {
-  console.log('Task Added:', newTask.value);
   emit('addTask', newTask.value);
   newTask.value = '';
 }
