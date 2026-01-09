@@ -1,16 +1,18 @@
 <script setup>
 import { ref } from 'vue';
+
 const newTask = ref('');
 
+const emit = defineEmits(['addTask']);
+
 function addTask() {
-    console.log('Task Added:', newTask.value);
-    newTask.value = '';
+  console.log('Task Added:', newTask.value);
+  emit('addTask', newTask.value);
+  newTask.value = '';
 }
 </script>
 
 <template>
-    <!-- Vue.js provides several built-in directives for common tasks
-  such as conditional rendering, list rendering, event handling, and attribute binding -->
     <main>
         <h1>Write Your Tasks</h1>
         <form @submit.prevent="addTask">
